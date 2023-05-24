@@ -54,6 +54,14 @@ class SiteController extends Controller
         ];
     }
 
+
+    public function actionSay($message = "hello world")
+    {
+        return $this->render('say',[
+            'message' => $message
+        ]);
+    }
+
     /**
      * Displays homepage.
      *
