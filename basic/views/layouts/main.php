@@ -26,7 +26,11 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="navbar-fixed sidebar-fixed sidebar-minified right-sidebar-toggoler-out">
+<body id="body" class="navbar-fixed sidebar-fixed right-sidebar-toggoler-out sidebar-minified-out">
+<script>
+    NProgress.configure({ showSpinner: false });
+    NProgress.start();
+</script>
 <?php $this->beginBody() ?>
 
 <div class="wrapper">
@@ -35,38 +39,16 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     </aside>
     <div class="page-wrapper">
         <header class="main-header" id="header">
-            <?php
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbar">
+                <!-- Sidebar toggle button -->
+                <button id="sidebar-toggler" class="sidebar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                </button>
 
-            NavBar::begin([
-                'brandLabel' => Yii::$app->name,
-                'brandUrl' => Yii::$app->homeUrl,
-                'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark fixed-top']
-            ]);
-            ?>
-            <div class="navbar-right">
-                <?= Nav::widget([
-                    'options' => ['class' => 'navbar-nav'],
-                    'items' => [
-                        ['label' => 'Home', 'url' => ['/site/index']],
-                        ['label' => 'About', 'url' => ['/site/about']],
-                        ['label' => 'Contact', 'url' => ['/site/contact']],
-                        Yii::$app->user->isGuest
-                            ? ['label' => 'Login', 'url' => ['/site/login']]
-                            : '<li class="nav-item">'
-                            . Html::beginForm(['/site/logout'])
-                            . Html::submitButton(
-                                'Logout (' . Yii::$app->user->identity->username . ')',
-                                ['class' => 'nav-link btn btn-link logout']
-                            )
-                            . Html::endForm()
-                            . '</li>'
-                    ]
-                ]);
-                ?>
-            </div>
-            <?
-            NavBar::end();
-            ?>
+                <span class="page-title">pagination</span>
+
+                <div class="navbar-right ">
+                </div>
         </header>
 
         <div class="content-wrapper">

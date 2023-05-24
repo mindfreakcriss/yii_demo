@@ -36,6 +36,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="card-body">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
+            'pager' => [
+                'nextPageLabel' => "下一页",
+                'prevPageLabel' => "上一页",
+                'options' => ['class' => "pagination"],
+                'linkOptions' => ['class' => 'page-link'],
+                'activePageCssClass' => "page-item active",
+                'disabledPageCssClass'  => "page-item",
+                'firstPageCssClass' => "page-item",
+                'lastPageCssClass' => "page-item",
+                'prevPageCssClass' => 'page-item',
+                'nextPageCssClass' => 'page-item'
+            ],
             'columns' => [
                 'id',
                 'username',

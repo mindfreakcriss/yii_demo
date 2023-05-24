@@ -13,7 +13,11 @@ class MonoAsset extends AssetBundle
 
     public $css = [
         'theme/css/style.css',
-        'css/site.css'
+        'css/site.css',
+        'theme/plugins/material/css/materialdesignicons.min.css',
+        'theme/plugins/simplebar/simplebar.css',
+        'theme/plugins/nprogress/nprogress.css',
+        'theme/plugins/prism/prism.css'
     ];
 
     public $js = [
@@ -21,11 +25,15 @@ class MonoAsset extends AssetBundle
         'theme/js/calendar.js',
         'theme/js/custom.js',
         'theme/js/map.js',
-        'theme/js/mono.js'
+        'theme/js/mono.js',
+        'theme/plugins/nprogress/nprogress.js',
+        'theme/plugins/simplebar/simplebar.min.js',
+        'theme/plugins/prism/prism.js',
+        'https://unpkg.com/hotkeys-js/dist/hotkeys.min.js'
     ];
 
     public $jsOptions = [
-        'position' => View::POS_END
+        'position' => View::POS_HEAD
     ];
 
     public $depends = [
