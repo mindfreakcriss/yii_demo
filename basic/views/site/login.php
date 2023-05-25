@@ -11,7 +11,7 @@ use yii\helpers\Html;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<body class="" id="body">
+
 <div class="container d-flex flex-column justify-content-between vh-100">
     <div class="row justify-content-center mt-5">
         <div class="col-xl-5 col-lg-6 col-md-10">
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                             </g>
                         </svg>
-                        <span class="brand-name">Sleek Dashboard</span>
+                        <span class="brand-name">这是一个后台</span>
                     </div>
                 </div>
                 <div class="card-body p-5">
