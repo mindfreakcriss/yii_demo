@@ -14,7 +14,7 @@ $config = [
     'components' => [
         'assetManager' => [
             'bundles' => [
-                'yii\bootstrap5\BootstrapAsset' => false
+                'yii\bootstrap5\BootstrapAsset' => false,
             ]
         ],
         'request' => [
@@ -52,6 +52,11 @@ $config = [
             'showScriptName' => false,
             'rules' => [
             ],
+        ],
+    ],
+    "modules" => [
+        'gridview' => [
+            'class' => "kartik\grid\Module"
         ],
     ],
     'params' => $params,

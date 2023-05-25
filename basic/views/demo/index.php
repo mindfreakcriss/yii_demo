@@ -4,7 +4,7 @@ use app\models\DemoModel;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
-use yii\grid\GridView;
+
 
 
 /** @var yii\web\View $this */
@@ -23,36 +23,42 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="card">
     <div class="card-body">
-        <?= GridView::widget([
-            'dataProvider' => $dataProvider,
-            'pager' => [
-//                'firstPageLabel' => "第一页",
-//                //Last option value
-//                'lastPageLabel' => "最后一页",
-                'nextPageLabel' => "下一页",
-                'prevPageLabel' => "上一页",
-                'options' => ['class' => "pagination pagination-sm"],
-                'linkOptions' => ['class' => 'page-link'],
-                'activePageCssClass' => "page-item active",
-                'disabledPageCssClass'  => "page-link disabled",
-                'firstPageCssClass' => "page-item",
-                'lastPageCssClass' => "page-item",
-//                'prevPageCssClass' => 'page-item',
-//                'nextPageCssClass' => 'page-item'
-            ],
-            'columns' => [
+        <?php
+            $columns = [
                 'id',
                 'username',
                 'age',
-                'created_at',
-                'updated_at',
                 [
-                    'class' => ActionColumn::className(),
-                    'urlCreator' => function ($action, DemoModel $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'id' => $model->id]);
-                    }
+                        'attribute' => 'created_at',
+                    'format' => [
+                            'date','php:Y-m-d H:i:s'
+                    ]
                 ],
-            ],
-        ]); ?>
+                [
+                    'attribute' => 'updated_at',
+                    'format' => [
+                        'date','php:Y-m-d H:i:s'
+                    ]
+                ],
+                [
+                    'header' => "操作",
+                    'template' => '{delete}',
+                    'class' => 'yii\grid\ActionColumn',
+                    'buttons' => [
+                        'delete' => function($url, $model) {
+                            $url = ['/demo/delete', 'id' => $model->id];
+                            return Html::a('<button class="btn btn-danger btn-sm">删除</button>', $url,
+                                [
+                                    'data' => ['confirm' => "确认删除该商品?", 'method' => 'post',]
+                                ]);
+                        },
+                    ],
+//                    "visibleButtons" => [
+//                        "delete" => Yii::$app->user->can("/demo/delete"),
+//                    ],
+                ],
+            ];
+        echo $this->render('/public/data_grid_view', ['dataProvider' => $dataProvider, 'columns' => $columns, 'title' => $this->title, 'canExport' => 1])
+        ?>
     </div>
 </div>
