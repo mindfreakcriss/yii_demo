@@ -26,19 +26,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
-//                'firstPageLabel' => "<a class='page-link'>第一页</a>",
+//                'firstPageLabel' => "第一页",
 //                //Last option value
-//                'lastPageLabel' => "<a class='page-link'>最后一页</a>",
+//                'lastPageLabel' => "最后一页",
                 'nextPageLabel' => "下一页",
                 'prevPageLabel' => "上一页",
-                'options' => ['class' => "pagination"],
+                'options' => ['class' => "pagination pagination-sm"],
                 'linkOptions' => ['class' => 'page-link'],
                 'activePageCssClass' => "page-item active",
                 'disabledPageCssClass'  => "page-link disabled",
                 'firstPageCssClass' => "page-item",
                 'lastPageCssClass' => "page-item",
-                'prevPageCssClass' => 'page-item',
-                'nextPageCssClass' => 'page-item'
+//                'prevPageCssClass' => 'page-item',
+//                'nextPageCssClass' => 'page-item'
             ],
             'columns' => [
                 'id',
