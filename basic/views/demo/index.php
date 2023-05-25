@@ -5,30 +5,19 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
-use yii\bootstrap5\Breadcrumbs;
+
 
 /** @var yii\web\View $this */
 /** @var app\models\search\SearchDemoModel $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Demo Models';
+$this->title = 'Demo的报表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="card card-default">
-    <div class="card card-header">
-        <?php if (!empty($this->params['breadcrumbs'])): ?>
-            <?= Breadcrumbs::widget([
-                'links' => $this->params['breadcrumbs'],
-                'options' =>
-                    [
-                        'class' => 'breadcrumb breadcrumb-primary'
-                    ]
-            ]) ?>
-        <?php endif ?>
-    </div>
-    <div class="card-body">
-        <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
+    <div class="card-header card-header-border-bottom">
+        <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     </div>
 </div>
 
@@ -37,12 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
             'pager' => [
+//                'firstPageLabel' => "<a class='page-link'>第一页</a>",
+//                //Last option value
+//                'lastPageLabel' => "<a class='page-link'>最后一页</a>",
                 'nextPageLabel' => "下一页",
                 'prevPageLabel' => "上一页",
                 'options' => ['class' => "pagination"],
                 'linkOptions' => ['class' => 'page-link'],
                 'activePageCssClass' => "page-item active",
-                'disabledPageCssClass'  => "page-item",
+                'disabledPageCssClass'  => "page-link disabled",
                 'firstPageCssClass' => "page-item",
                 'lastPageCssClass' => "page-item",
                 'prevPageCssClass' => 'page-item',

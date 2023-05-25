@@ -52,16 +52,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
             </div>
         </div>
 
-        <?= $this->render('footer') ?>
+        <?php // $this->render('footer') ?>
 
     </div>
 
-<!--        <div class="content-wrapper">-->
-<!--            <div class="content">-->
-<!--                --><?php //= Alert::widget() ?>
-<!--                --><?php //= $content ?>
-<!--            </div>-->
-<!--        </div>-->
     </div>
 
 <?php $this->endBody() ?>
